@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Messages Recieved</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bg1"><br/>
+<ion-card class="card" *ngFor="let x of contact_list">
+  <ion-card-header><ion-item>
+    <ion-card-subtitle>{{x.email}}</ion-card-subtitle>
+  </ion-item><br/>
+    <ion-card-subtitle>Message no- {{x.id}}</ion-card-subtitle>
+    <ion-card-subtitle>contact number- {{x.contact}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+   {{x.message}}
+  </ion-card-content>
+</ion-card>
+</div>
+</ion-content>

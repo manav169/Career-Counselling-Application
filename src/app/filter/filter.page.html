@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myform" (ngSubmit)="abc(myform.value)">
+
+    <ion-row>
+      <ion-col>Enter Course Duration</ion-col>
+      <ion-col>
+        <ion-select formControlName="duration">
+          <ion-select-option >all</ion-select-option>
+          <ion-select-option *ngFor="let dur_time of dur_list">{{dur_time}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>Select State</ion-col>
+      <ion-col>
+  
+        <ion-select formControlName="state" (ionChange)="get_city_list(myform.value)">
+          <ion-select-option >all</ion-select-option>
+          <ion-select-option *ngFor="let statename of statelist" >{{statename}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>Select City</ion-col>
+      <ion-col>
+
+        <ion-select formControlName="city">
+          <ion-select-option >all</ion-select-option>
+
+          <ion-select-option *ngFor="let cityname of citylist">{{cityname}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>Enter Fees</ion-col>
+      <ion-col>
+        <ion-input placeholder="type here" type="number" formControlName="fees"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-col>
+      <ion-row>
+        <ion-col>Enter Course Eligibility</ion-col>
+        <ion-col>
+          <ion-select formControlName="course_eli">
+
+            <ion-select-option *ngFor=" let item of eli_list">{{item}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit">submit</ion-button>
+      </ion-col>
+    </ion-row><br />
+  </form>
+
+
+<div *ngIf="divcaseno==2">
+  <ion-card *ngFor="let info of course_data">
+    <ion-card-header>
+      <ion-card-title>
+  {{"name "+info.name}}
+  
+      </ion-card-title>
+      <ion-card-subtitle>{{"course code: "+info.c_code}}</ion-card-subtitle>
+    
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row><ion-col>Course</ion-col><ion-col>{{info.c_name}}</ion-col></ion-row>
+
+        
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

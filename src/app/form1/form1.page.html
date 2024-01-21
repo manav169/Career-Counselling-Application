@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>form1</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myform" (ngSubmit)="submit(myform.value)">
+  <ion-row>
+    <ion-col>Select college</ion-col>
+    <ion-col>
+      <ion-select formControlName="collegename">
+
+        <ion-select-option *ngFor="let collegename of collegelist" >{{collegename}}</ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-col>
+    <ion-row>
+      <ion-col>enter course code</ion-col>
+      <ion-col>
+        <ion-input type="number" formControlName="course_code" placeholder="type course code"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+  <ion-col>
+    <ion-row>
+      <ion-col>enter courses</ion-col>
+      <ion-col>
+        <ion-input formControlName="course" placeholder="type course name"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-col>
+      <ion-row>
+        <ion-col>enter course eligibility</ion-col>
+        <ion-col>
+          
+
+          <ion-select formControlName="course_eli">
+
+            <ion-select-option *ngFor=" let item of eli_list">{{item}}</ion-select-option>
+          </ion-select>
+
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col>
+      <ion-row>
+        <ion-col>enter course fee</ion-col>
+        <ion-col>
+          <ion-input type="number" formControlName="course_fee" placeholder="type course fee"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-row>
+      <ion-col>select course duration</ion-col>
+      <ion-col>
+        <ion-select formControlName="duration">
+
+          <ion-select-option *ngFor="let dur_time of dur_list">{{dur_time}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+  </ion-col>
+  <ion-button type="submit">submit</ion-button>
+  </form>
+</ion-content>

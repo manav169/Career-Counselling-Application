@@ -1,0 +1,13 @@
+ion-row.rowdata ion-col:hover
+{
+color: blue;
+font-size:20px ;
+}
+ion-icon.star
+{
+    color: yellow;
+    &:hover{
+        color: red;
+        name:"star";
+        }
+}

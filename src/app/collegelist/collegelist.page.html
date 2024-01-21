@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>collegelist</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="div_caseno==1">
+<ion-card *ngFor="let info of college_data">
+  <ion-card-header>
+    <ion-card-subtitle>{{"college id"+info.id}}</ion-card-subtitle>
+    <ion-card-title>
+    {{"name "+info.name}}
+
+    </ion-card-title>
+  
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row><ion-col>State</ion-col><ion-col>{{info.state}}</ion-col></ion-row>
+      <ion-row><ion-col>city</ion-col><ion-col>{{info.city}}</ion-col></ion-row>
+      <ion-row><ion-col>contact</ion-col><ion-col>{{info.contact}}</ion-col></ion-row>
+      <ion-row><ion-col>email</ion-col><ion-col>{{info.email}}</ion-col></ion-row>
+      <ion-row><ion-col>no of courses</ion-col><ion-col>{{info.no_courses}}</ion-col></ion-row>
+      <ion-row><ion-col>type of college</ion-col><ion-col>{{info.collegetype}}</ion-col></ion-row>
+      
+    </ion-grid>
+
+    <ion-row class="rowdata">
+      <ion-col size="4" (click)=get_info(info.id,1)>Comment</ion-col>
+      <ion-col size="4" (click)=get_info(info.id,2)>Like</ion-col>
+      <ion-col size="4" (click)=get_info(info.id,3)>Rate</ion-col>
+    </ion-row>
+
+
+  </ion-card-content>
+</ion-card>
+</div>
+<div *ngIf="div_caseno==2">
+  <ion-button (click)="back()">Back</ion-button>
+  <br/>
+  {{college_id}}
+  <br/>
+
+  <div *ngIf="case_value==1">1st case (Comment)
+    <ion-item>
+      <ion-label position="floating">Add Comment</ion-label>
+      <ion-input [(ngModel)]="comment"></ion-input>
+    </ion-item>
+    <ion-button (click)="add_comment()">add comment</ion-button>
+
+
+
+<ion-list>
+  <ion-item *ngFor="let c of all_comment_info ">
+   <ion-row>
+    <ion-col ><ion-label>{{c.comment}}</ion-label></ion-col>
+   
+    <ion-col ><ion-label>{{c.profile_id}}----{{c.cm_id}}</ion-label></ion-col>
+    <ion-col >{{c.profile_id}}----<ion-button (click)="del_comment(c.cm_id)">Delete</ion-button> {{profile_id}}</ion-col>
+  </ion-row>
+  </ion-item>
+</ion-list>
+
+
+  </div>
+  <div *ngIf="case_value==2">2nd case
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <ion-label>Like the college</ion-label>
+  <ion-select placeholder="like" [(ngModel)]="like">
+    <ion-select-option *ngFor="let x of like_list"  >{{x}}</ion-select-option>
+  </ion-select>
+  <ion-button (click)="like_college()">submit</ion-button>
+
+
+  </div>
+  <div *ngIf="case_value==3">3rd case 
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+  <ion-label>Rate the college</ion-label>
+  star' : '
+  
+  <!--
+  <ion-icon *ngFor="let x of rate_list" name="star-outline" class="star"></ion-icon><br/>
+  <ion-icon *ngFor="let x of rate_list" name="star-outline" class="star"></ion-icon>
+
+
+  -->
+
+  <ion-select placeholder="rate" [(ngModel)]="rate">
+    <ion-select-option *ngFor="let x of rate_list"  >{{x}}</ion-select-option>
+  </ion-select>
+  <ion-button (click)="rate_college()">Rate</ion-button>
+  </div>
+  
+  </div>
+</ion-content>

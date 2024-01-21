@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>forgetpass</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+ <div *ngIf="caseno==1">
+  <form [formGroup]="myform" (ngSubmit)="fpass(myform.value)">
+   
+         <ion-grid>
+          <ion-row>
+            <ion-col>Enter Username</ion-col>
+            <ion-col>
+              <ion-input type="text" formControlName="cnt1"  placeholder="user_id/email/mobile_no"></ion-input>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col><ion-button type="submit">Send OTP </ion-button></ion-col>
+          </ion-row>
+        </ion-grid>
+        </form>   
+
+      </div>
+      <div *ngIf="caseno==2">
+        <form [formGroup]="myform" (ngSubmit)="fpass(myform.value)">   
+  <ion-row>
+    <ion-col>Enter OTP</ion-col>
+    <ion-col>
+      <ion-input type="number" formControlName="cnt1"  placeholder="type here"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col><ion-button type="submit" colour="success">Enter</ion-button></ion-col>
+  </ion-row>
+
+  </form>
+</div>
+<div *ngIf="caseno==3">
+  <form [formGroup]="myform" (ngSubmit)="fpass(myform.value)">
+  <ion-row>
+    <ion-col>Enter New Password</ion-col>
+    <ion-col>
+      <ion-input type="password" formControlName="cnt1"  placeholder="type here"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>Confirm Password</ion-col>
+    <ion-col>
+      <ion-input type="password" formControlName="cnt2"  placeholder="type here"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col><ion-button type="submit" colour="success">Enter</ion-button></ion-col>
+  </ion-row>
+
+
+
+
+</form>  
+</div> 
+
+
+</ion-content>

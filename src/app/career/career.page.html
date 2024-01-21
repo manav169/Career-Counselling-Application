@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>career</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <div *ngIf="div_caseno==1">
+    <ion-card *ngFor="let x of career_data">
+     
+        
+       
+      <ion-card-title (click)=get_aim_info(x.id)>AIM : {{x.aim}}</ion-card-title>
+    </ion-card>
+  </div>
+  <div *ngIf="div_caseno==2" >
+    <ion-card *ngFor="let x of career_data">
+
+      <ion-card-subtitle>AIM Id : {{x.id}}</ion-card-subtitle><br />
+      <ion-list>
+        <ion-item>
+          % required in class 10: {{x.ten}}<br /><br />
+          Stream to be opted: {{x.onetwo}}<br /><br />
+          % required in class 12: {{x.onetwop}}<br /><br />
+          Enterance Exams (For INDIA): {{x.g}}<br /><br />
+          % required in Enterance Exams: {{x.gp}}<br /><br />
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+
+</ion-content>

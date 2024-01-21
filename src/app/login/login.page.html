@@ -1,0 +1,143 @@
+ 
+
+
+<ion-content>
+  
+  <div class="bg1" class="flex-center" *ngIf="x==1">
+    <form [formGroup]="myform" (ngSubmit)="login(myform.value)">
+      <br/>
+      <ion-card class="card">
+      <h2>Login</h2><br/>
+        <ion-card-header class="logo">
+          <img src="assets/logo.png" alt="logo">
+        </ion-card-header>
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">Username</ion-label>
+
+            <ion-input type="text" formControlName="user_name" placeholder="user id/email/mobile number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+
+            <ion-input type="password" formControlName="user_password" placeholder="Type your password"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <br/>
+        <hr>
+        <ion-grid>
+          <ion-row>
+            <ion-col>USER TYPE</ion-col>
+            <ion-col>
+              <ion-select interface="popover" formControlName="user_type">
+                <ion-select-option *ngFor="let type of type_list">{{type}}</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+</ion-card>
+
+<ion-button  expand="block" type="submit" [routerLink]="['/career']">Login</ion-button>
+<ion-button color="dark" fill="clear" size="full">Forget Password/Email</ion-button>
+
+</form>
+</div>
+
+
+<div *ngIf="x==2" class="flex-center">
+  <form [formGroup]="myform" (ngSubmit)="login(myform.value)">
+  <ion-card>
+  <ion-card-subtitle>Enter your mobile number</ion-card-subtitle>
+
+  <ion-input type="number" formControlName="phone" placeholder="Type your Mobile Number"></ion-input>  
+  </ion-card>
+  
+  <ion-button type="submit" >Submit</ion-button>
+</form>
+
+</div>
+
+
+<div *ngIf="x==3" class="flex-center">
+  <form [formGroup]="myform" (ngSubmit)="login(myform.value)">
+<ion-card>
+<ion-card-subtitle>Confirm your OTP</ion-card-subtitle>
+<ion-input type="number" formControlName="otp"></ion-input>
+</ion-card>
+
+<ion-button type="submit" >Submit</ion-button>
+</form>
+</div>
+
+
+  <div *ngIf="x==4" class="flex-center">
+    <form [formGroup]="myform" (ngSubmit)="login(myform.value)">
+      <br/>
+      <ion-card class="card">
+      <h2>Signup</h2><br/>
+        
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">Username</ion-label>
+
+            <ion-input type="text" formControlName="user_name" placeholder="Enter your username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+
+            <ion-input type="password" formControlName="user_password" placeholder="Type your password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">email</ion-label>
+
+            <ion-input type="email" formControlName="email" placeholder="Type your email"></ion-input>
+          </ion-item>
+         
+        </ion-list>
+
+        <br/>
+        <hr>
+        <ion-grid>
+          <ion-row>
+            <ion-col>USER TYPE</ion-col>
+            <ion-col>
+              <ion-select interface="popover" formControlName="user_type">
+                <ion-select-option *ngFor="let type of type_list">{{type}}</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+</ion-card>
+
+<ion-buttons><ion-button type="submit">Next>></ion-button></ion-buttons>
+
+</form>
+    
+  </div>
+
+</ion-content>
+<ion-footer transculent="true" class="ion-no-border" collapse="fade">
+  <ion-toolbar class="bt2">
+    <ion-buttons  slot="end">
+      <ion-button *ngIf="x==1" (click)="bt2()">-sign up?</ion-button>
+      <ion-button *ngIf="x==2" (click)="back(1)">Back</ion-button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-footer>

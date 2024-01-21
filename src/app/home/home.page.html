@@ -1,0 +1,66 @@
+  
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button color="dark"></ion-menu-button>
+  </ion-buttons>
+   Add College info  </ion-toolbar>
+
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="bg1">
+
+  <form [formGroup]="myform" (ngSubmit)="abc(myform.value)">
+    <br/>
+    <ion-card class="card" ><br/>
+      <ion-label> Enter college name</ion-label>
+    
+        <ion-input placeholder="Type here" type="text" formControlName="name"></ion-input>
+    
+    </ion-card>
+    
+    <ion-card class="card">
+      <ion-label>Select State/U.T</ion-label>
+      
+        <ion-select formControlName="state" (ionChange)="get_city_list(myform.value)">
+
+          <ion-select-option *ngFor="let statename of statelist" >{{statename}}</ion-select-option>
+        </ion-select>
+      </ion-card>
+    
+
+  
+      <ion-card class="card">
+      <ion-label>Select city</ion-label>
+
+        <ion-select formControlName="city">
+
+          <ion-select-option *ngFor="let cityname of citylist">{{cityname}}</ion-select-option>
+        </ion-select>
+      </ion-card>
+    
+
+
+      
+      <ion-card class="card">
+      <ion-label> Enter contact number</ion-label>
+        <ion-input placeholder="Type here" type="number" formControlName="contact"></ion-input>
+      </ion-card>
+    
+
+      
+      <ion-card class="card">
+        <ion-label> Enter email</ion-label>
+        <ion-input placeholder="Type here" type="text" formControlName="email"></ion-input>
+      </ion-card>
+    
+
+      
+     <div class="bt1"> 
+        <ion-button type="submit" shape="round">Submit</ion-button>
+    </div>
+      
+    <br />
+  </form>
+</div>
+</ion-content>
